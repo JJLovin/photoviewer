@@ -1,0 +1,92 @@
+﻿*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  background-color: #595959;
+}
+.container {
+  margin: 2rem;
+  width: 100%;
+  height: 100%;
+}
+.photo {
+  display: grid;
+  /*
+  grid-template-columns: min-content auto;
+  grid-auto-rows: minmax(min-content, max-content);
+  grid-gap: 0;
+  justify-items: start;
+  width: 100%;
+  */
+  height: 100%;
+}
+.photo__title {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: whitesmoke;
+  margin-bottom: 5px;
+}
+.photo__jpeg {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-top: 2px solid whitesmoke;
+  padding-top: 5px;
+  border-bottom: 2px solid whitesmoke;
+  padding-bottom: 5px;
+}
+.photo__caption {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  align-self: start;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: sans-serif;
+  color: whitesmoke;
+  padding-top: 5px;
+}
+.photo__date {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  padding-top: 5px;
+  font-family: "Lucida Console", monospace;
+  color: whitesmoke;
+}
+.nav {
+  grid-column: 2 / 3;
+  grid-row: 5 / 6;
+  justify-items: center;
+}
+.nav__btns {
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  margin: 20px 0 0 20px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", sans-serif;
+  font-weight: bolder;
+  font-size: 1rem;
+  padding: 3px 10px 3px 10px;
+  background-color: #595959;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+}
+.nav__btns:hover {
+  cursor: pointer;
+  color: #595959;
+  background-color: whitesmoke;
+  border: none;
+}

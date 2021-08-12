@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilities</title>
+    <link rel="stylesheet" type="text/css" href="css/utility.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:400" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" />
+  </head>
+  <body>
+    <h2>Create Tables</h2>
+    <form id="create" action="php/createtables.php" method="post">
+      <div class="create__item">
+        <input type="checkbox" id="folder" name="folder" />
+        <label for="folder">Folder</label>
+      </div>
+      <div class="create__item">
+        <input type="checkbox" id="keyword" name="keyword" />
+        <label for="keyword">Keyword</label>
+      </div>
+      <div class="create__item">
+        <input type="checkbox" id="photo" name="photo" />
+        <label for="photo">Photo</label>
+      </div>
+      <div class="create__item">
+        <input type="checkbox" id="photokeyword" name="photokeyword" />
+        <label for="photokeyword">PhotoKeyword</label>
+      </div>
+      <div class="create__item">
+        <input type="checkbox" id="keygroup" name="keygroup" />
+        <label for="keygroup">KeyGroup</label>
+      </div>
+      <div class="create__item">
+        <input type="checkbox" id="keysubgroup" name="keysubgroup" />
+        <label for="keysubgroup">KeySubgroup</label>
+      </div>
+      <input type="submit" class="create__submit" value="Create Tables" />
+    </form>
+
+    <h2>Popluate Keyword Table</h2>
+    <form id="create" action="php/populatekeyword.php" method="post">
+      <input type="submit" class="create__submit" value="Populate Keyword Table" />
+    </form>
+
+    <h2>Dump Keyword Table</h2>
+    <form id="create" action="php/dumpkeyword.php" method="post">
+      <input type="submit" class="create__submit" value="Dump Keyword Table" />
+    </form>
+
+    <h2>Test a Query</h2>
+    <form id="create" action="php/testquery.php" method="post">
+      <input type="submit" class="create__submit" value="Test Query" />
+    </form>
+  </body>
+</html>

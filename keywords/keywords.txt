@@ -1,0 +1,263 @@
+[_Activity/Venue]
+	Backpacking
+	Beekeeping
+	Bicycle
+	Campfuture
+	Campground
+	Campsite
+	Canoeing
+	Canyon
+	Dinner
+	Hotel/Airbnb
+	Museum
+	Restaurant
+	Rock Climbing
+	Shooting
+	Trail
+	Trailhead
+	Wine Tasting
+	Work
+[_Animals]
+	.Foster Kittens
+		@PIN
+		Bert
+		Cleo
+		Frankie
+		Hansel/Gretel
+		LittleJohn
+		Misty
+		RobinHood
+		Scarlett
+		Stewart
+	Arrow/Lexie
+	Chloe
+	Comet
+	Finnegan/Katie
+	Kihei
+	MisterB
+	Moby/Sapho
+	Molly/Sam
+	Onyx/Opal
+	Taco/Tika
+	Viron
+	Winston
+[_Documents]
+	Article
+	Diploma
+	ID/Badge
+	Label
+	Letter
+	Map
+	Sign
+	Silk Screen
+	Yearbook
+[_Event]
+	Birthday
+	Concert/Music
+	Elementary School
+	Festival
+	Funeral
+	Graduation
+	Halloween
+	High School
+	Holidays
+	Techwomen
+	University
+	Wedding
+[_Family-Jim]
+	Jim
+	Bob/MaryKay
+	Bill/Lou
+	Bill/Sandy
+	Bob/Ollie
+	WHannah
+	Jim/Anne
+	Nana
+	Ruth/Mart
+[_Family-Julia]
+	Julia
+	Alicia/Darius
+	Cindy/Dave
+	Jessica
+	Kelly
+	Phyllis/Bill
+	Rebecca
+	Don/Carolyn
+	Doris/Dotie/Wanda
+	Amy/David/Melissa
+	Chris L
+	Christina/Wes
+	John Matthias
+	Scott Minor
+	Dave/Kirs
+	Phoebe/Quinn
+[_Friends]
+	[.Parent Friends]
+		Biber-Herb/Marty
+		Hale-Jane/Tom
+		Young-Bob/Dot
+	[.Pre-CA]
+		Basch-Peter
+		Bliss-Robin
+		College Friends
+		Conlon-Coleen
+		Darwin-Suzanne
+		DeNovo-Anne
+		DeNovo-Jeanne/John
+		Flinn-Pat
+		Gille-Fabrice
+		Hale-Lisa/Scott
+		Moult-Jim
+		Scala-Rob
+		Stenswick-Bruce
+		Sutherland-Simone
+		Watkins-Valerie
+	Bartlett-Joel/Wendy
+	Biber/Reppen-Doug/Randi
+	Biber-Dave
+	Biber-Jeff/Bettyann
+	Biber-Jeff Kids
+	Corbeil-Johanne
+	Davidson-Leslie
+	Dunbars
+	Elwell-Joe
+	Fallin-Bill/Joyce
+	Felx-Sylvie
+	Ferioli-Laurie
+	Gomsi-Walt
+	Hiller-Ann
+	Lundhild-Barb
+	Lytle/Smith-Gigi/Dolores
+	Merala-Mark
+	Moore-Dwight
+	Niehaus-Carl
+	Otatti-Michael
+	Rindegard/Selin-Bengt/Anna
+	Tandem/HP Friends
+	Trapnell-Fritz/Nomi
+	Voris-Ben
+[_Location]
+	[.Countries]
+		Canada
+			Quetico
+		Egypt
+		Germany
+		India
+		Ireland
+		Jordan
+		Morrocco
+		Rwanda
+		South Africa
+		Spain
+		Tortola
+	AZ
+		Agua Caliente
+		Atascosa Lookout
+		Flagstaff
+		Florida Canyon
+		Ironwood Forest NM
+		Mt Lemmon
+		Oro Valley
+		Pima Canyon
+		Rincon Mts
+		Saguaro NP
+			Hugh Norris Trail
+			Tangue Verde Ridge
+			Wasson Peak
+		Tucson
+		Tucson Mt Park
+		Ventana Canyon
+	CA
+		Alturas
+		Bay Area
+		Belmont
+		Kinst Ct
+		Klamath NF
+		LaCuesta Dr
+		Lava Beds NM
+		Los Padres NF
+		Lost Coast
+		Mammoth Lakes
+		Marin Headlands
+		Modoc NF
+		Mojave NP
+		San Francisco
+		Santa Cruz
+		Tahoe NF
+		Trinity Alps
+	CO
+		Black Canyon Gunnison
+		Mt Elbert
+	DC
+	ID
+		Ben House
+		Boise
+		City of Rocks
+		Danskin Mts
+		Frank Church
+		Idaho City
+		Langer Lake
+		Marsing
+		McCall
+		Redfish Lake
+		Sawtooth Mts
+		Selway Bitteroot Mts
+		Stanley
+	MD
+		Bannockburn
+		Green Ridge SF
+		Silver Spring
+	MN
+		Devil Track Lake
+		Grand Ave
+		Grand Marais
+		Lakes
+		Wheeler Ave
+	MT
+	NC
+		Cary
+		Outer Banks
+		Rock Hill
+		Wrightsville Beach
+	NV
+		Arc Dome
+		Blue Eagle Pk
+		Clan Alpine Mts
+		Denio
+		Ely/McGill
+		Gerlach
+		Haystack Mt
+		Pancake Mts
+		Roberts Mts
+		Santa Rosa Mts
+		Schell Creek Mts
+		Toiyabe Mts
+	NY
+		New York City
+	OR
+		Bend
+		Crater Lake NP
+		Pendleton
+		Portland
+		Umpqua NF
+	PA
+		Glenshaw
+		Murrysville
+		Penn State
+		Philadelphia
+	UT
+		Capital Reef NP
+		Escalante
+		Logan
+	VA
+		Assateague
+		Mt Rogers
+		Reston
+		Shenandoah NP
+	VT
+		Burlington
+	WA
+		Olympic NP
+	WI
+	WV
+gMojave NP

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Photos</title>
+    <script type="module" src="js/constants.js"></script>
+    <script type="module" src="exif/exif-reader.js"></script>
+    <script type="module" src="js/upload-event-handler.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/upload.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:400" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" />
+  </head>
+  <body>
+    <div class="menu">
+      <div>
+        <a href="index.html" class="menu__item">Home</a>
+        <a href="folder.html" class="menu__item">Folder</a>
+        <a href="search.html" class="menu__item">Search</a>
+      </div>
+      <div id="uploadphoto">
+        <a href="#" class="menu__item">Upload Photos</a>
+      </div>
+    </div>
+
+    <div id="newjpeg" class="newjpeg">
+      <div id="newjpeg__upload" class="newjpeg__upload" method="post" enctype="multipart/form-data">
+        <form id="newjpeg__upload__form" class="newjpeg__upload__form">
+          <input type="file" id="newjpeg__upload__form__input" name="jpegs[]" accept="image/jpeg,application/json" multiple />
+          <label for="newjpeg__upload__form__input" class="newjpeg__upload__form__label--img"><img src="icons/upload.svg" /></label>
+          <label for="newjpeg__upload__form__input" class="newjpeg__upload__form__label--txt">Select files or drag here</label>
+        </form>
+      </div>
+
+      <div id="newjpeg__files" class="newjpeg__files">
+        <div class="screen__heading">Files to Upload:</div>
+        <ul id="newjpeg__files__ul" class="newjpeg__files__ul">
+          <!-- li's entered by javascript -->
+        </ul>
+        <div class="screen__heading">Upload to Folder:</div>
+        <div id="newjpeg__files__foldername" class="newjpeg__files__ul">
+          <!-- entered by javascript -->
+        </div>
+        <div class="newjpeg__files__warning">Warning - existing files will be replaced</div>
+        <div class="newjpeg__files__btns">
+          <button id="newjpeg__files__btns--upload" class="button">Upload</button>
+          <button id="newjpeg__files__btns--cancel" class="button">Cancel</button>
+        </div>
+      </div>
+
+      <div id="newjpeg__folder" class="newjpeg__folder">
+        <div class="screen__heading">Select folder for uploaded photos</div>
+        <form id="newjpeg__folder__form" class="newjpeg__folder__form">
+          <!-- folder items entered by javascript like this:
+            <div class="newjpeg__folder__item">
+              <input id="f1" value="f1" name="folders" type="radio" />
+              <label for="f1">folder1 name</label>
+            </div> -->
+        </form>
+        <div class="newjpeg__folder__btns">
+          <button id="newjpeg__folder__btns--ok" class="button">OK</button>
+          <button id="newjpeg__folder__btns--cancel" class="button">Cancel</button>
+        </div>
+      </div>
+
+      <div id="newjpeg__result" class="newjpeg__result">
+        <div id="newjpeg__result__ok" class="newjpeg__result__ok">
+          <div class="screen__heading">Files Uploaded Successfully:</div>
+          <ul id="newjpeg__result__ok__files" class="newjpeg__result__ok__files">
+            <!-- file names uploaded ok entered by php -->
+          </ul>
+        </div>
+        <div id="newjpeg__result__error" class="newjpeg__result__error">
+          <div class="screen__heading">Upload Errors:</div>
+          <ul id="newjpeg__result__error__detail" class="newjpeg__result__error__detail">
+            <!-- Upload errors entered by php -->
+          </ul>
+        </div>
+        <div class="newjpeg__result__btns">
+          <button id="newjpeg__result__btns--ok" class="button">OK</button>
+        </div>
+      </div>
+
+      <div id="newjpeg__newfolder" class="newjpeg__newfolder">
+        <div class="screen__heading">Folder Description</div>
+        <form class="newjpeg__newfolder__form" action="/action_page.php">
+          <div class="newjpeg__newfolder__form--inputs">
+            <label for="sdate">Start Date:</label>
+            <input type="date" id="sdate" name="sdate" value="" />
+
+            <label for="countries">Countries:</label>
+            <input type="text" id="countries" name="countries" value="" />
+
+            <label for="states">States:</label>
+            <input type="text" id="states" name="states" value="" placeholder="CA, NV" />
+
+            <label for="locations">Locations:</label>
+            <input type="text" id="locations" name="locations" value="" />
+
+            <label for="description">Description:</label>
+            <textarea rows="5" cols="30" id="description" name="description" value=""></textarea>
+          </div>
+          <input class="button" type="submit" value="Submit" />
+        </form>
+      </div>
+      <!--
+      <div id="newjpeg__duplicate" class="newjpeg__duplicate">
+        <ul id="newjpeg__duplicate__list" class="newjpeg__duplicate__list">
+          <!-- duplicate file names entered by php 
+        </ul>
+        <div class="newjpeg__duplicate__btns">
+          <button id="newjpeg__duplicate__btns--skip" class="button">Skip Files</button>
+        </div>
+        <div class="newjpeg__duplicate__btns">
+          <button id="newjpeg__duplicate__btns--replace" class="button">Replace Files</button>
+        </div>
+        <div class="newjpeg__duplicate__btns">
+          <button id="newjpeg__duplicate__btns--cancel" class="button">Cancel Upload</button>
+        </div>
+      </div>
+    -->
+      <div id="newjpeg__error" class="newjpeg__error">
+        <div class="screen__heading">Error:</div>
+        <div id="newjpeg__error__msg--txt" class="newjpeg__error__msg--txt"></div>
+        <div id="newjpeg__error__msg--data" class="newjpeg__error__msg--data"></div>
+        <div id="newjpeg__error__msg--fileline" class="newjpeg__error__msg--fileline"></div>
+      </div>
+    </div>
+  </body>
+</html>

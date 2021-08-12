@@ -1,0 +1,98 @@
+﻿* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #121733;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+}
+h1 {
+  text-align: center;
+  font-family: "Sedgwick Ave";
+  font-size: 2rem;
+  color: #8995d6;
+  padding: 20px 0 20px 0;
+  margin-bottom: 5px;
+}
+@media (min-width: 400px) {
+  h1 {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1000px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(18, 23, 51, 0.9); /* .9 to see imgs scroll underneath */
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__item {
+  color: #d8dcf1;
+  display: inline-block;
+  font-family: "Sedgwick Ave";
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+a.menu__item:first-child {
+  padding-right: 25px;
+}
+.menu__item:hover {
+  color: #8995d6;
+}
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #8995d6;
+  object-fit: cover; /* crop image within its cell */
+}
+figcaption {
+  font-style: normal;
+  font-family: "Roboto";
+  font-size: 0.8rem;
+  color: #d8dcf1;
+  line-height: 1; /* reduce space between img and figcaption */
+  padding-bottom: 15px;
+}
+img:hover + figcaption {
+  color: #f3f4fb;
+}
+img:hover {
+  border: 2px solid #f3f4fb;
+  cursor: pointer;
+}
+
+/* --- Grid Styles ----------------------- */
+.grid {
+  margin-top: 100px; /* space for sticky header */
+  display: grid;
+  grid-auto-flow: row; /* fill each row, ie horizontal */
+  grid-auto-columns: 90%; /* create as many columns as there are items. 90% so we can see next item on the right */
+  gap: 2rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 20rem) /* 20rem is width of figure(img + figcaption) */); /* as many columns with max-width of 20rem */
+  justify-content: center; /* center the grid on the page */
+}
+
+.grid__figure {
+  display: grid;
+  grid-template-rows: 15rem 1fr; /* 15rem high row for img, 1fr for figcaption */
+  grid-gap: 1rem;
+}

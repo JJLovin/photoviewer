@@ -1,0 +1,49 @@
+h2 {
+  font-family: "Sedgwick Ave";
+  font-size: 1.2rem;
+  margin: 30px 0 0 5px;
+}
+label,
+input {
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 2px 0 0 5px;
+}
+label {
+  padding-right: 5px;
+}
+#create {
+  display: flex;
+  flex-direction: column;
+}
+.create__item {
+  display: flex;
+}
+.create__submit {
+  width: max-content;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 5px 10px 5px 5px;
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+td {
+  font-size: 0.9rem;
+}
+p,
+li {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 0.8rem;
+}
+.keyword {
+  margin-left: 10px;
+}

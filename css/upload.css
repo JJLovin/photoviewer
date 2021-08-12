@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #121733;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+/* Top of page menu styles */
+.menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #121733;
+  position: fixed;
+  top: 0;
+  padding: 15px;
+}
+.menu__item {
+  color: #d8dcf1;
+  display: inline-block;
+  font-family: "Sedgwick Ave";
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding-right: 25px;
+}
+.menu__item:last-child {
+  padding-right: 0;
+}
+
+.menu__item:hover {
+  color: #8995d6;
+  cursor: pointer;
+}
+
+.screen__heading {
+  justify-self: start;
+  color: #8995d6;
+  font-family: "Roboto";
+  font-size: 01.2rem;
+  font-weight: bold;
+  margin: 20px 0 5px 10px;
+}
+
+/* Container for all popups */
+.newjpeg {
+  display: flex;
+  justify-content: center;
+  margin-top: 20%;
+}
+/* Upload popup */
+.newjpeg__upload {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #26316d;
+}
+.newjpeg__upload__form {
+  display: grid;
+  grid-template-columns: 40% 20% 40%;
+  justify-items: center;
+  align-items: center;
+  margin: 1rem;
+  border: 3px dotted #6271c8;
+}
+.button {
+  padding: 0.5rem 0.75rem;
+  background-color: #6271c8;
+  color: #d8dcf1;
+  width: max-content;
+  border: none;
+  border-radius: 5px;
+}
+#newjpeg__upload__btns--cancel:hover {
+  /* only cancel btn. upload btn not active until files selected */
+  background-color: #8995d6;
+  color: #f3f4fb;
+  cursor: pointer;
+}
+#newjpeg__upload__form__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+}
+.newjpeg__upload__form__label--txt {
+  font-size: 1rem;
+  font-family: "Roboto";
+  grid-column: 1/5;
+  margin: 1rem 0 1rem 0;
+  padding: 10px;
+  color: #8995d6;
+  cursor: pointer;
+}
+.newjpeg__upload__form__label--txt:hover {
+  color: #d8dcf1;
+}
+.newjpeg__upload__form__label--img {
+  grid-column: 2/3;
+  color: #d8dcf1;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  margin: 2rem 0 1rem 0;
+  filter: invert(43%) sepia(95%) saturate(1117%) hue-rotate(211deg) brightness(84%) contrast(82%); /* #6271c8 */
+  /* SVG color converter:  https://codepen.io/sosuke/pen/Pjoqqp */
+}
+.newjpeg__upload__form__label--img:hover {
+  filter: invert(87%) sepia(4%) saturate(966%) hue-rotate(195deg) brightness(103%) contrast(89%); /* #d8dcf1 */
+}
+#newjpeg__folder {
+  display: none;
+}
+
+/* Filelist popup */
+#newjpeg__files {
+  width: 30%;
+  display: none; /* javascript changes it to display:grid */
+  grid-template-columns: 1fr;
+  background-color: #26316d;
+}
+.newjpeg__files__dir,
+.newjpeg__files__ul {
+  color: #d8dcf1;
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  text-decoration: none;
+  list-style: none;
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+.newjpeg__files__ul__li {
+  padding: 0;
+  margin: 0;
+}
+.newjpeg__files__warning {
+  justify-self: start;
+  color: #8995d6;
+  font-family: "Roboto";
+  font-size: 01rem;
+  margin: 10px 0 5px 10px;
+}
+.newjpeg__files__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px 0 20px 0;
+}
+/* folder list screen */
+#newjpeg__folder {
+  /*width: 30%;*/
+  display: none; /* javascript changes it to display:grid */
+  grid-template-columns: 1fr;
+  background-color: #26316d;
+}
+.newjpeg__folder__form {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+.newjpeg__folder__item {
+  margin-bottom: 3px;
+  color: #d8dcf1;
+  font-family: "Roboto";
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+.newjpeg__folder__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px 0 20px 0;
+}
+
+form label {
+  margin-left: 5px;
+}
+
+/* Error popup */
+#newjpeg__error {
+  width: 30%;
+  display: none; /* javascript changes it to display:grid */
+  grid-template-columns: 1fr;
+  background-color: #26316d;
+}
+.newjpeg__error__msg--txt,
+.newjpeg__error__msg--data {
+  color: #d8dcf1;
+  font-family: "Roboto";
+  font-size: 1rem;
+  text-decoration: none;
+  list-style: none;
+  margin: 10px 0 25px 20px;
+  padding: 0;
+}
+.newjpeg__error__msg--fileline {
+  color: #d8dcf1;
+  font-family: "Roboto Mono";
+  font-size: 0.7rem;
+  text-decoration: none;
+  list-style: none;
+  margin: 0 0 25px 20px;
+  padding: 0;
+}
+
+/* Upload results */
+.newjpeg__result {
+  /*width: minmax(40%, maxcontent);*/
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #26316d;
+}
+.newjpeg__result__ok,
+.newjpeg__result__error {
+  display: none;
+  color: #d8dcf1;
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  text-decoration: none;
+  margin: 10px 20px 25px 20px;
+  padding: 0;
+}
+.newjpeg__result__ok__files,
+.newjpeg__result__error__detail {
+  list-style: none;
+  padding: 0 0 0 10px;
+  margin: 0;
+}
+.newjpeg__result__error__detail--name {
+  list-style: none;
+  padding: 10px 0 0 0px;
+  margin: 0;
+}
+.newjpeg__result__error__detail--file {
+  list-style: none;
+  padding: 0 0 0 10px;
+  margin: 0;
+}
+.newjpeg__result__btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 20px 0 20px 0;
+}
+
+.newjpeg__newfolder {
+  width: 40%;
+  justify-content: center;
+  align-content: center;
+  background-color: #26316d;
+  color: #d8dcf1;
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+.newjpeg__newfolder__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.newjpeg__newfolder form input[type="text"],
+.newjpeg__newfolder form input[type="date"],
+.newjpeg__newfolder form textarea {
+  /*margin: 3px auto 15px 10px;*/
+  padding: 0.25rem 0.5rem;
+  background-color: #6271c8;
+  color: #d8dcf1;
+  resize: none;
+}
+.newjpeg__newfolder form label {
+  text-align: right;
+}
+.newjpeg__newfolder form input[type="submit"] {
+  margin: 20px auto 10px auto;
+}
+.newjpeg__newfolder__form--inputs {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  gap: 5px;
+}

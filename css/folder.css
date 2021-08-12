@@ -1,0 +1,91 @@
+﻿* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #121733;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+}
+h1 {
+  text-align: center;
+  font-family: "Sedgwick Ave";
+  font-size: 2rem;
+  color: #8995d6;
+  padding: 20px 0 20px 0;
+  /*border-bottom: whitesmoke solid 3px; */
+}
+ul {
+  list-style: none;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: rgba(18, 23, 51, 0.9); /* .9 to see imgs scroll underneath */
+}
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__item {
+  color: #d8dcf1;
+  display: inline-block;
+  font-family: "Sedgwick Ave";
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+a.menu__item:first-child {
+  padding-right: 25px;
+}
+.menu__item:hover {
+  color: #8995d6;
+}
+
+/* -- Grid Styles ---------------------- */
+.folder {
+  margin-top: 100px; /* space for sticky header */
+  display: grid;
+  grid-gap: 10px;
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* new col when 250px become available in viewport */
+  grid-auto-rows: auto; /* as many rows as needed */
+}
+.folder__desc {
+  padding: 5px;
+  border: 1px solid #8995d6;
+  border-radius: 5px;
+  background-color: #26316d;
+  font-family: "Roboto";
+  font-size: 0.8rem;
+  color: #d8dcf1;
+  /* width: 250px; */
+}
+.folder__desc:hover {
+  background-color: #6271c8;
+  color: #f3f4fb;
+  border-color: #f3f4fb;
+  cursor: pointer;
+}
+.folder__desc__item {
+  margin: 0;
+  padding-left: 10px;
+}
+.folder__desc__item-date {
+  font-family: "Roboto Mono";
+  font-size: 1rem;
+  padding-left: 0;
+}
+.folder__year {
+  grid-column: 1 / -1; /* from first line(1) to last line(-1) */
+  font-family: "Roboto Mono";
+  font-size: x-large;
+  color: #8995d6;
+  border-bottom: 2px solid #8995d6;
+  margin-top: 50px;
+}
+.folder__year:nth-child(1) {
+  margin: 0;
+}

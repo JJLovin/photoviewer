@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/search2.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:400" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono:200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" />
+    <script type="text/javascript" src="js/search2.js"></script>
+  </head>
+  <body>
+    <div class="menu">
+      <div>
+        <a href="#" class="menu__item">Home</a>
+      </div>
+      <div>
+        <a href="#" class="menu__item">Folder</a>
+        <a href="#" class="menu__item">Search</a>
+      </div>
+    </div>
+    <!--    <div class="search">  -->
+    <div class="datestitle">
+      <div class="dates">
+        <div class="dates__start">
+          <label for="date-start"><h2>Start Date</h2></label>
+          <input id="date-start" type="date" name="date-start" size="15" />
+        </div>
+        <div>
+          <label for="date-end"><h2>End Date</h2></label>
+          <input id="date-end" type="date" name="date-end" size="15" />
+        </div>
+      </div>
+      <div class="title">
+        <label for="title"><h2>Title/Caption Words</h2></label>
+        <input id="title" type="text" name="title" size="40" />
+      </div>
+    </div>
+
+    <div id="keywords">
+      <div class="key__group">
+        <h2 class="key__group__name">Family</h2>
+        <ul class="key__group__list">
+          <li class="key__group__list--item" data-keyword="124">Campbell_Julia</li>
+          <li class="key__group__list--item" data-keyword="125">Kelly</li>
+          <li class="key__group__list--item" data-keyword="126">David</li>
+          <li class="key__group__list--item" data-keyword="127">Campbell_Rebecca</li>
+          <li class="key__group__list--item" data-keyword="128">Winters_Kirs</li>
+          <li class="key__group__list--item" data-keyword="129">Mathias_Christina</li>
+          <li class="key__group__list--item" data-keyword="130">_Julia</li>
+          <li class="key__group__list--item" data-keyword="131">Kelly</li>
+          <li class="key__group__list--item" data-keyword="132">David</li>
+          <li class="key__group__list--item" data-keyword="133">Mathias_Christina</li>
+          <li class="key__group__list--item" data-keyword="134">Rebecca</li>
+          <li class="key__group__list--item" data-keyword="135">Winters_Kirs</li>
+        </ul>
+      </div>
+      <div class="key__group">
+        <h2 class="key__group__name">Friends</h2>
+        <ul class="key__group__list">
+          <li class="key__group__subgroup">
+            <span class="key__group__list--item">Subgroup</span>
+            <ul class="key__group__list">
+              <li class="key__group__list--item" data-keyword="225">Campbell, Kelly</li>
+              <li class="key__group__list--item" data-keyword="226">Campbell, David</li>
+              <li class="key__group__list--item" data-keyword="227">Campbell, Rebecca</li>
+              <li class="key__group__list--item" data-keyword="225">Campbell, Kelly</li>
+              <li class="key__group__list--item" data-keyword="226">Campbell, David</li>
+              <li class="key__group__list--item" data-keyword="227">Campbell, Rebecca</li>
+              <li class="key__group__list--item" data-keyword="228">Winters, Kirs</li>
+              <li class="key__group__list--item" data-keyword="229">Mathias, Christina</li>
+            </ul>
+          </li>
+          <li class="key__group__list--item" data-keyword="224">Campbell, Julia</li>
+          <li class="key__group__list--item" data-keyword="225">Campbell, Kelly</li>
+          <li class="key__group__list--item" data-keyword="226">Campbell, David</li>
+          <li class="key__group__list--item" data-keyword="227">Campbell, Rebecca</li>
+          <li class="key__group__list--item" data-keyword="228">Winters, Kirs</li>
+          <li class="key__group__list--item" data-keyword="229">Mathias, Christina</li>
+        </ul>
+      </div>
+      <div class="key__group">
+        <h2 class="key__group__name">Locations</h2>
+        <ul class="key__group__list">
+          <li class="key__group__list--item" data-keyword="324">Campbell, Julia</li>
+          <li class="key__group__list--item" data-keyword="325">Campbell, Kelly</li>
+          <li class="key__group__list--item" data-keyword="326">Campbell, David</li>
+          <li class="key__group__list--item" data-keyword="327">Campbell, Rebecca</li>
+          <li class="key__group__list--item" data-keyword="328">Winters, Kirs</li>
+          <li class="key__group__list--item" data-keyword="329">Mathias, Christina</li>
+        </ul>
+      </div>
+    </div>
+    <div id="submit" class="submit">Search</div>
+    <!--</div>-->
+    <div id="result"></div>
+  </body>
+</html>
