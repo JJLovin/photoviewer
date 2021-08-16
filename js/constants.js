@@ -78,7 +78,7 @@ export class Jpeg {
   }
 }
 
-class Folder {
+export class Folder {
   constructor(directory) {
     this.id;
     this.name;

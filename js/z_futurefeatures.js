@@ -2,6 +2,7 @@
 
 import ExifReader from "../exif/exif-reader.js";
 import {
+  Jpeg,
   CAPTION_ABSTRACT,
   OBJECT_NAME,
   MODEL,
@@ -23,7 +24,26 @@ import {
   KEYWORDS,
   HIERARCHICAL_SUBJECT,
 } from "./constants.js";
-import Jpeg from ".constants.js";
+
+window.onload = initpage();
+
+function initpage() {
+  document.getElementById("deletetags").addEventListener("change", deleteTags);
+}
+
+function deleteTags() {
+  let file = document.getElementById("deletetags").files[0];
+  let reader = new FileReader();
+  reader.readAsArrayBuffer(file);
+  reader.onload = function () {
+    let tags = ExifReader.load(reader.result);
+    for (let name in tags) {
+      //delete tags["Make"];
+      //delete tags["Model"];
+      console.log(`${name} : ${tags[name].description}`);
+    }
+  };
+}
 
 function recordTags(readerEvent) {
   let fileName = readerEvent.target.filePath;
@@ -159,3 +179,50 @@ function recordTags(readerEvent) {
   }
   console.log(JSON.stringify(photo));
 }
+
+
+// <label>Select multiple files to read from your system:</label>
+// <input type="file" id="fileinput" multiple />
+
+function fileReaderPromiseExample() {
+    /**
+     *  Simple JavaScript Promise that reads a file as text.
+     **/
+    function readFileAsText(file){
+        return new Promise(function(resolve,reject){
+            let fr = new FileReader();
+
+            fr.onload = function(){
+                resolve(fr.result);
+            };
+
+            fr.onerror = function(){
+                reject(fr);
+            };
+
+            fr.readAsText(file);
+        });
+    }
+
+    // Handle multiple fileuploads
+    document.getElementById("fileinput").addEventListener("change", function(ev){
+        let files = ev.currentTarget.files;
+        let readers = [];
+
+        // Abort if there were no files selected
+        if(!files.length) return;
+
+        // Store promises in array
+        for(let i = 0;i < files.length;i++){
+            readers.push(readFileAsText(files[i]));
+        }
+        
+        // Trigger Promises
+        Promise.all(readers).then((values) => {
+            // Values will be an array that contains an item
+            // with the text of every selected file
+            // ["File1 Content", "File2 Content" ... "FileN Content"]
+            console.log(values);
+        });
+    }, false);
+  }
