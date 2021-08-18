@@ -16,6 +16,7 @@ import { verifyUploadFileList } from "./upload-verify-files";
 import { sendJpegsToServer } from "./upload-send-to-server";
 import { getFolderList } from "./upload-get-folder.js";
 import { processServerResult } from "./upload-server-result";
+import { extractExifData } from "./z_futurefeatures";
 
 window.onload = initUploadPage;
 

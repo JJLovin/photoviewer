@@ -78,6 +78,9 @@ ul {
   border: none;
   border-radius: 5px;
 }
+.button:hover {
+  cursor: pointer;
+}
 #newjpeg__upload__btns--cancel:hover {
   /* only cancel btn. upload btn not active until files selected */
   background-color: #8995d6;

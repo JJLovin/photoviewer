@@ -76,6 +76,7 @@
     $qry .= "exposure      TINYTEXT,";
     $qry .= "fStop         TINYTEXT,";
     $qry .= "focalLen      TINYTEXT,";
+    $qry .= "focalLen35mm  TINYTEXT,";
     $qry .= "ISO           TINYTEXT,";
     $qry .= "height        SMALLINT UNSIGNED,";
     $qry .= "width         SMALLINT UNSIGNED,";

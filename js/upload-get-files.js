@@ -2,7 +2,7 @@ import { VERIFY_FILES, GET_FOLDER_LIST } from "./constants.js";
 import { ERR_TOO_MANY_FOLDERS, ERR_NOT_FILE_NOT_FOLDER, ERR_FILE_AND_FOLDER } from "./constants.js";
 import { displayError } from "./handle-errors.js";
 
-var fileUploadArray = [];
+var fileUploadArray = []; // file objects for files to be uploaded
 var directoryName = "";
 
 export function getSelectedFiles() {

@@ -22,6 +22,7 @@ export const LENS = "LensModel";
 export const EXPOSURE = "ExposureTime";
 export const FSTOP = "FNumber";
 export const FOCAL_LENGTH = "FocalLength";
+export const FOCAL_LENGTH_35 = "FocalLengthIn35mmFilm";
 export const ISO = "ISOSpeedRatings";
 export const LATITUDE = "GPSLatitude";
 export const LATITUDE_REF = "GPSLatitudeRef";
@@ -65,6 +66,7 @@ export class Jpeg {
     this.seconds;
     this.fstop;
     this.focal;
+    this.focal35;
     this.iso;
     this.height;
     this.width;

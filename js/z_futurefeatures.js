@@ -11,6 +11,7 @@ import {
   EXPOSURE,
   FSTOP,
   FOCAL_LENGTH,
+  FOCAL_LENGTH_35,
   ISO,
   LATITUDE,
   LATITUDE_REF,
@@ -25,29 +26,27 @@ import {
   HIERARCHICAL_SUBJECT,
 } from "./constants.js";
 
-window.onload = initpage();
-
-function initpage() {
-  document.getElementById("deletetags").addEventListener("change", deleteTags);
+export async function extractExifData(fileUploadArray) {
+  for (let i = 0; i < fileUploadArray.length; i++) {
+    let result = await getArrayBuffer(fileUploadArray[i]);
+    // do Exif extraction
+    recordTags(result, fileUploadArray[i].name);
+  }
 }
 
-function deleteTags() {
-  let file = document.getElementById("deletetags").files[0];
-  let reader = new FileReader();
-  reader.readAsArrayBuffer(file);
-  reader.onload = function () {
-    let tags = ExifReader.load(reader.result);
-    for (let name in tags) {
-      //delete tags["Make"];
-      //delete tags["Model"];
-      console.log(`${name} : ${tags[name].description}`);
-    }
-  };
+function getArrayBuffer(file) {
+  return new Promise(function (resolve, reject) {
+    let fr = new FileReader();
+    fr.onload = function () {
+      resolve(fr.result);
+    };
+    fr.readAsArrayBuffer(file);
+  });
 }
 
-function recordTags(readerEvent) {
-  let fileName = readerEvent.target.filePath;
-  const tags = ExifReader.load(readerEvent.target.result);
+function recordTags(fileArrayBuffer, fileName) {
+  console.log(`\nJPEG File: ${fileName}`);
+  const tags = ExifReader.load(fileArrayBuffer);
   let photo = new Jpeg(fileName);
 
   if (tags[OBJECT_NAME] != undefined && tags[OBJECT_NAME].description != undefined) {
@@ -79,7 +78,11 @@ function recordTags(readerEvent) {
     photo.model = "";
   }
   if (tags[LENS] != undefined && tags[LENS].description != undefined) {
-    photo.lens = tags[LENS].description;
+    if (tags[LENS].description.startsWith("iPhone 12 Pro")) {
+      photo.lens = tags[LENS].description.slice(14, 32);
+    } else {
+      photo.lens = tags[LENS].description;
+    }
   } else {
     photo.lens = "";
   }
@@ -97,6 +100,11 @@ function recordTags(readerEvent) {
     photo.focal = tags[FOCAL_LENGTH].description;
   } else {
     photo.focal = "";
+  }
+  if (tags[FOCAL_LENGTH_35] != undefined && tags[FOCAL_LENGTH_35].description != undefined) {
+    photo.focal35 = tags[FOCAL_LENGTH_35].description;
+  } else {
+    photo.focal35 = "";
   }
   if (tags[ISO] != undefined && tags[ISO].description != undefined) {
     photo.iso = tags[ISO].description;
@@ -180,49 +188,76 @@ function recordTags(readerEvent) {
   console.log(JSON.stringify(photo));
 }
 
-
+/*
 // <label>Select multiple files to read from your system:</label>
 // <input type="file" id="fileinput" multiple />
 
 function fileReaderPromiseExample() {
-    /**
-     *  Simple JavaScript Promise that reads a file as text.
-     **/
-    function readFileAsText(file){
-        return new Promise(function(resolve,reject){
-            let fr = new FileReader();
+  function readFileAsText(file) {
+    return new Promise(function (resolve, reject) {
+      let fr = new FileReader();
 
-            fr.onload = function(){
-                resolve(fr.result);
-            };
+      fr.onload = function () {
+        resolve(fr.result);
+      };
 
-            fr.onerror = function(){
-                reject(fr);
-            };
+      fr.onerror = function () {
+        reject(fr);
+      };
 
-            fr.readAsText(file);
-        });
-    }
-
-    // Handle multiple fileuploads
-    document.getElementById("fileinput").addEventListener("change", function(ev){
-        let files = ev.currentTarget.files;
-        let readers = [];
-
-        // Abort if there were no files selected
-        if(!files.length) return;
-
-        // Store promises in array
-        for(let i = 0;i < files.length;i++){
-            readers.push(readFileAsText(files[i]));
-        }
-        
-        // Trigger Promises
-        Promise.all(readers).then((values) => {
-            // Values will be an array that contains an item
-            // with the text of every selected file
-            // ["File1 Content", "File2 Content" ... "FileN Content"]
-            console.log(values);
-        });
-    }, false);
+      fr.readAsText(file);
+    });
   }
+
+  // Handle multiple fileuploads
+  document.getElementById("fileinput").addEventListener(
+    "change",
+    function (ev) {
+      let files = ev.currentTarget.files;
+      let readers = [];
+
+      // Abort if there were no files selected
+      if (!files.length) return;
+
+      // Store promises in array
+      for (let i = 0; i < files.length; i++) {
+        readers.push(readFileAsText(files[i]));
+      }
+
+      // Trigger Promises
+      Promise.all(readers).then((values) => {
+        // Values will be an array that contains an item
+        // with the text of every selected file
+        // ["File1 Content", "File2 Content" ... "FileN Content"]
+        console.log(values);
+      });
+    },
+    false
+  );
+}
+
+//example for XMLHttpRequest
+function makeRequest(method, url) {
+  return new Promise(function (resolve, reject) {
+    let xhr = new XMLHttpRequest();
+    xhr.open(method, url);
+    xhr.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText,
+        });
+      }
+    };
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText,
+      });
+    };
+    xhr.send();
+  });
+}
+*/
